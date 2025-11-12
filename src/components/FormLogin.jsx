@@ -4,17 +4,13 @@ import {
   TextField,
   Button,
   Typography,
-  Paper,
   InputAdornment,
   IconButton,
-  ThemeProvider,
-  createTheme,
-  CssBaseline,
 } from "@mui/material"
 import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material"
 import { useNavigate } from "react-router-dom"
+import { getLogin } from "../hooks/user/Login"
 
-const theme = createTheme()
 
 export default function FormLogin() {
   const [email, setEmail] = useState("")
@@ -22,7 +18,11 @@ export default function FormLogin() {
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const resp = await getLogin(email);
+    if (resp.status == 200){
+      navigate("/main");
+    }
   }
 
   const handleClickShowPassword = () => {
@@ -42,7 +42,6 @@ export default function FormLogin() {
               
           <Box
             component="form"
-            onSubmit={handleSubmit}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -140,9 +139,9 @@ export default function FormLogin() {
             />
 
             <Button
-              type="submit"
               variant="contained"
               fullWidth
+              onClick={ () => {handleSubmit()} }
               sx={{
                 padding: 1.5,
                 fontSize: "1rem",

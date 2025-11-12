@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function FootBar() {
     return(
@@ -6,9 +6,11 @@ export default function FootBar() {
             sx={{
                 width: "100%",
                 backgroundColor: "blue",
-                height: "200px"
+                height: "200px",
+                
             }}
         >
+            
 
         </Box>
     )

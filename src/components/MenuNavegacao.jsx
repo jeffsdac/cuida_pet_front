@@ -9,7 +9,7 @@ export default function MenuNavegacao(){
                 justifyContent: "space-around", 
                 width: "100%",
                 backgroundColor: "var(--bg-color)",
-                height: "60px"
+                height: "60px",
             }}
         >
         
