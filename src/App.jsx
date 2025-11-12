@@ -1,22 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
 import About from './pages/About'
-import Navbar from './components/Navbar'
-import { Box, Container } from '@mui/material'
+import Home from './pages/Home'
+import Main from './pages/Main'
 
 export default function App() {
   return (
-    <BrowserRouter>
-      
-      <Navbar />
-        <Box>
+    <BrowserRouter>        
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/"  element={<Home/>}/>
             <Route path="/about" element={<About />} />
+            <Route path="/main" element={<Main />} />
           </Routes>
-
-      </Box>
-
     </BrowserRouter>
   )
 }

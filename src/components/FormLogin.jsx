@@ -12,6 +12,7 @@ import {
   CssBaseline,
 } from "@mui/material"
 import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material"
+import { useNavigate } from "react-router-dom"
 
 const theme = createTheme()
 
@@ -19,9 +20,9 @@ export default function FormLogin() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
-    
   }
 
   const handleClickShowPassword = () => {
@@ -29,17 +30,16 @@ export default function FormLogin() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-        <Paper
-          elevation={10}
+        <Box
           sx={{
-            padding: 4,
+            paddingX: 4,
             width: "100%",
             maxWidth: 400,
-            borderRadius: 3,
+            backgroundColor: "#fff",
+            height: "100%"
           }}
         >
+              
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -55,8 +55,9 @@ export default function FormLogin() {
               sx={{
                 textAlign: "center",
                 fontWeight: 700,
-                color: "#667eea",
+                color: "var(--text-color)",
                 marginBottom: 1,
+                pt:4
               }}
             >
               Bem-vindo
@@ -90,14 +91,14 @@ export default function FormLogin() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "&:hover fieldset": {
-                    borderColor: "#667eea",
+                    borderColor: "var(--contrast-color)",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "#667eea",
+                    borderColor: "var(--contrast-color)",
                   },
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#667eea",
+                  color: "var(--contrast-color)",
                 },
               }}
             />
@@ -126,14 +127,14 @@ export default function FormLogin() {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "&:hover fieldset": {
-                    borderColor: "#667eea",
+                    borderColor: "var(--contrast-color)",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "#667eea",
+                    borderColor: "var(--contrast-color)",
                   },
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                  color: "#667eea",
+                  color: "var(--contrast-color)",
                 },
               }}
             />
@@ -147,9 +148,9 @@ export default function FormLogin() {
                 fontSize: "1rem",
                 fontWeight: 600,
                 textTransform: "none",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                background: "linear-gradient(135deg, var(--contrast-color) 0%, #bc9a43ff 100%)",
                 "&:hover": {
-                  background: "linear-gradient(135deg, #5568d3 0%, #63408a 100%)",
+                  background: "linear-gradient(135deg, var(--contrast-color) 0%, #bc9a43ff 100%)",
                   transform: "translateY(-2px)",
                   boxShadow: 4,
                 },
@@ -169,6 +170,9 @@ export default function FormLogin() {
             >
               Esqueceu sua senha?{" "}
               <Box
+                onClick={ () => {
+                 navigate("/main"); 
+                }}
                 component="span"
                 sx={{
                   color: "#667eea",
@@ -183,8 +187,8 @@ export default function FormLogin() {
               </Box>
             </Typography>
         </Box>
-        </Paper>
-    </ThemeProvider>
+        </Box>
+    
     
   )
 }

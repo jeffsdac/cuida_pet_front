@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import FormLogin from '../components/FormLogin'
+import FormLoginBg from '../components/FormLoginBg'
 
 
 export default function Home() {
@@ -10,10 +11,11 @@ export default function Home() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        pt: 2
+        height: "100%"
       }}
-    >
-      <FormLogin/>
+    > 
+        <FormLogin/>
+        <FormLoginBg/>     
     </Box>
 
   )

@@ -1,3 +1,11 @@
+:root {
+  --bg-color: #ffe9d2;
+  --text-color: #150b33;
+  --textlink-color: #fc8864;
+  --contrast-color: #fdd05d;
+}
+
+
 html, body, #root {
   height: 100%;
   margin: 0;
